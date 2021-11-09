@@ -10,10 +10,10 @@ namespace SingleTon
         static void Main(string[] args)
         {
             Sinlett sin = Sinlett.VizovSingl();
-            Console.WriteLine($"Счётчик при вызрве инстанса {Sinlett.Zahod}");
+            Console.WriteLine($"Счётчик при вызове инстанса {Sinlett.Zahod}");
 
             Sinlett sin_2 = Sinlett.VizovSingl();
-            Console.WriteLine($"Счётчик при вызрве инстанса {Sinlett.Zahod}");
+            Console.WriteLine($"Счётчик при вызове инстанса {Sinlett.Zahod}");
 
             Console.ReadLine();
 
