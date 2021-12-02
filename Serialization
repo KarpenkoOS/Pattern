@@ -1,0 +1,38 @@
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+namespace Serializable
+{
+    [Serializable]
+    public class Myclass
+    {
+        public int age;
+        public string name;
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Myclass my =new Myclass();
+            my.name = "Oksana";
+            my.age = 21;
+
+            FileStream stream = File.Create("test.dat");
+            BinaryFormatter formatter = new BinaryFormatter();
+            //Сериализация
+            formatter.Serialize(stream, my);
+            stream.Close();
+
+            //Десериализация
+            stream = File.OpenRead("test.dat");
+
+            my = formatter.Deserialize(stream) as Myclass;
+
+            Console.WriteLine("Имя    : " + my.name);
+            Console.WriteLine("Возраст: " + my.age);
+            stream.Close();
+            Console.ReadKey();
+        }
+    }
+}
